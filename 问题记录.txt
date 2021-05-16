@@ -1,0 +1,1 @@
+（1）跨域问题：从别的源获取API数据，需要检查是否有Access-Control-Allow-Origin: *（可以中间转发）
