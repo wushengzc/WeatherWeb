@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML文档解析示例</title>
+    <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        // 获取xml数据并解析的原生js例子
+        function loadXMLDoc(dname){
+            var str = "";
+            if(window.XMLHttpRequest){
+                xhttp = new XMLHttpRequest();
+            } else {
+                xhttp = new ActiveXObject("Microsoft.XMLHttp");
+            }
+            xhttp.open("GET", dname, false);
+            xhttp.send();
+            str = xhttp.response;         // 这里先把xhttp.response赋给一个变量，以得到一个字符串的xml，直接return xhttp.repsonse返回undefined
+            return str;
+        }
+
+        parser = new DOMParser();
+        xmlDoc = parser.parseFromString(loadXMLDoc("https://restapi.amap.com/v3/geocode/regeo?output=xml&location=113.310003,22.991957&key=80b368e3987c1b342868a4ce780dda7c&radius=1000&extensions=all"), "text/xml");
+        txt = xmlDoc.getElementsByTagName("city")[0].childNodes[0].nodeValue;
+        document.getElementById("demo").innerHTML = txt;
+    </script>
+</body>
+</html>

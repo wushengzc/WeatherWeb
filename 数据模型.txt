@@ -1,0 +1,45 @@
+数据模型
+建立一个城市天气的数据模型，分为4个部分：城市的基本信息，当前的天气信息，未来24小时的天气信息，未来15天的天气信息。
+
+对象属性
+城市的基本信息（object类型）     cityInfo
+当前的天气信息（object类型）     currentWeather
+未来24小时的天气信息（Array类型） future24h
+未来15天的天气信息（Array类型）   future15d
+
+
+数据描述         数据来源               变量名        例子
+
+城市的基本信息（object类型）：
+城市ID          itboy             citykey      101120101
+城市名称         itboy             city         海淀区
+更新时间         itboy             updateTime   19:16
+所属地           itboy             parent       北京市
+
+当前的天气信息（object类型）：
+空气质量      itboy           data.quality       良         
+PM2.5        itboy           data.pm25          22
+提醒信息      itboy           data.notice        阴晴之间，谨防紫外线侵扰                
+湿度         itboy            data.shidu         29%
+温度         itboy            data.wendu          23 
+风向         itboy            data.forcast.fx    东北风
+风力强度     itboy            data.forcast.fl     2级             2级
+体感温度      tianqiapi       day.feelsLike        5  
+气压         tianqiapi        day.altimeter       1022.01
+天气类型      tianqiapi        day.phrase          晴朗
+
+未来24小时的天气信息（object）：
+时间          tianqiapi     hours.time     23:00
+天气icon      tianqiapi     hours.wea_img  (xue、lei、shachen、wu、bingbao、yun、yu、yin、qing)              
+温度          tianqiapi     hours.tmp      7
+风向          tianqiapi     hours.wind     东
+风速          tianqiapi     housrs.windspeed  9 (km/h)
+
+未来15天的天气信息（object）:
+日期          itboy         data.forcast.ymd          2021-05-12
+星期          itboy         data.forcast.week         星期三
+天气类型       itboy         data.forcast.type         多云
+最高温度       itboy         data.forcast.high         高温 27℃
+最低温度       itboy         data.forcast.low          低温 16℃
+风向          itboy          data.forcast.fx          东北风
+风力强度       itboy         data.forcast.fl           2级

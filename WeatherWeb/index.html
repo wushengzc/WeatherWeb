@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/CityId.js"></script>
+    <script src="js/CityWeatherClass.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/main.js"></script>
+
+    <title>天气预报</title>
+</head>
+
+<body>
+    <!-- 主页 -->
+    <div data-role="page" id="home" style="background-color: rgb(99, 93, 93);">
+        <div data-role="header" data-position="fixed" style="background-color: rgb(99, 93, 93);">
+            <a href="#search" class="ui-btn ui-corner-all ui-icon-search ui-btn-icon-notext"
+                data-transition="pop fade"></a>
+            <h1 class="city">广州市</h1>
+            <a href="#myPopup" data-rel="popup"
+                class="ui-btn ui-btn-right ui-btn-inline ui-corner-all ui-icon-gear ui-btn-icon-left ui-btn-icon-notext"></a>
+
+            <div data-role="popup" id="myPopup" class="ui-content">
+                <div data-role="collapsibleset">
+                    <div data-role="collapsible">
+                        <h3 id="swapCity">切换城市</h3>
+                    </div>
+                    <a href="#gear" class="ui-btn ui-corner-all" data-transition="pop fade">设置</a>
+                </div>
+            </div>
+        </div>
+
+        <div data-role="main" class="ui-content" style="background-color: rgb(99, 93, 93);">
+            <div class="bigicon">
+                <span class="wendu" style="color: #fff; font-size: 80px;">33</span><span style="color: #fff; font-size: 30px;">℃</span>
+                <p> <span class="phrase">多云</span></p>
+            </div>
+
+
+            <div class="simple">
+                <ul>
+                    <li>
+                        <p><span><img src="img/quality.png" alt=""> 空气<span class="quality">优</span> <span
+                                    class="pm25">24</span><span style="float: right;"></span></p>
+                    </li>
+                    <li class="day3">
+                        <p><span><img src="img/yun.png" class="phrase_img" alt=""> 今天 <span class="type3">多云</span></span><span
+                                style="float: right;"><span class="high3">35</span> /
+                                <span class="low3">35</span></span></p>
+                        </p>
+                    </li>
+                    <li class="day3">
+                        <p><span><img src="img/qing.png" class="phrase_img" alt=""> 明天 <span class="type3">多云</span></span></span><span
+                                style="float: right;"><span class="high3">35</span> /
+                                <span class="low3">35</span></span></p>
+                        </p>
+                    </li>
+                    <li class="day3">
+                        <p><span><img src="img/yu.png" class="phrase_img" alt=""> 后天 <span class="type3">多云</span></span></span><span
+                                style="float: right;"><span class="high3">35</span> /
+                                <span class="low3">35</span></span></p>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <a href="#detail" class="ui-btn ui-corner-all" data-transition="slidefade">查看近15日天气</a>
+        </div>
+    </div>
+
+    <!-- 详情页 -->
+    <div data-role="page" id="detail" style="background-color: rgb(99, 93, 93);">
+        <div data-role="header" data-position="fixed" style="background-color: rgb(99, 93, 93);">
+            <a href="#home" class="ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-notext"
+                data-transition="slidefade reverse"></a>
+            <h1 class="city">广州市</h1>
+        </div>
+
+        <div data-role="main" class="ui-content" style="background-color: rgba(99, 93, 93, 0.95);">
+            <div style="height: 150px; width: 100%; overflow-y: hidden; overflow-x: scroll;">
+                <div style="width: 440%; height: 100%; color: #fff;">
+                    <!-- 15个盒子的6.66%相加接近 100%，即父盒子的大小 -->
+                    <div class="hour1" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">00:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour2" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">01:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour1" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">02:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour2" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">03:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour1" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">04:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour2" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">05:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour1" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">06:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour2" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">07:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour1" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">08:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour2" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">09:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour1" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">10:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour2" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">11:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour1" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">12:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour2" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">13:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour1" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">00:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour2" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">01:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour1" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">02:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour2" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">03:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour1" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">04:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour2" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">05:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour1" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">06:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour2" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">07:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour1" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">08:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                    <div class="hour2" style="text-align: center; padding-top: 10px;">
+                        <p class="time24">09:00</p>
+                        <p><span class="tem24">33</span>℃</p>
+                        <img src="img/yun.png" class="wea_img" width="25px" height="25px" style="margin: 10px 0;" alt=""><br>
+                        <img src="img/feng.png" width="20px" height="20px">
+                        <p><span class="windSpeed24"></span> km/h</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="otherinfo" style="height: 100px; margin-top: 10px; background-color: rgba(99, 93, 93, 0.95);">
+                <ul>
+                    <li>
+                        <p class="fl">2级</p>
+                        <p class="fx">南风</p>
+                    </li>
+                    <li>
+                        <p class="shidu">50%</p>
+                        <p>湿度</p>
+                    </li>
+                    <li>
+                        <p><span class="feelsLike">33</span>℃</p>
+                        <p>体感</p>
+                    </li>
+                    <li>
+                        <p><span class="altimeter">1001</span>hPa</p>
+                        <p>气压</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 这里不限定高度，因为这是Web，而不是app，它可以变的更长 -->
+            <div class="day" style="height: 400px;margin-top: 10px; text-align: center;">
+                <table style="width: 100%;">
+                    <tr height="20px">
+                        <th style="width: 25%;">日期</th>
+                        <th style="width: 45%;">天气</th>
+                        <th style="width: 15%;">最高</th>
+                        <th style="width: 15%;">最低</th>
+                    </tr>
+                    <tr height="20px">
+                        <td class="ymd15"></td>
+                        <td><img src="img/yun.png" class="phrase_img" alt="" width="25px" height="25px"></td>
+                        <td><span class="high15">28</span></td>
+                        <td><span class="low15">21</span></td>
+                    </tr>
+                    <tr height="20px">
+                        <td class="ymd15"></td>
+                        <td><img src="img/yun.png" class="phrase_img" alt="" width="25px" height="25px"></td>
+                        <td><span class="high15">28</span></td>
+                        <td><span class="low15">21</span></td>
+                    </tr>
+                    <tr height="20px">
+                        <td class="ymd15"></td>
+                        <td><img src="img/yun.png" class="phrase_img" alt="" width="25px" height="25px"></td>
+                        <td><span class="high15">28</span></td>
+                        <td><span class="low15">21</span></td>
+                    </tr>
+                    <tr height="20px">
+                        <td class="ymd15"></td>
+                        <td><img src="img/yun.png" class="phrase_img" alt="" width="25px" height="25px"></td>
+                        <td><span class="high15">28</span></td>
+                        <td><span class="low15">21</span></td>
+                    </tr>
+                    <tr height="20px">
+                        <td class="ymd15"></td>
+                        <td><img src="img/yun.png" class="phrase_img" alt="" width="25px" height="25px"></td>
+                        <td><span class="high15">28</span></td>
+                        <td><span class="low15">21</span></td>
+                    </tr>
+                    <tr height="20px">
+                        <td class="ymd15"></td>
+                        <td><img src="img/yun.png" class="phrase_img" alt="" width="25px" height="25px"></td>
+                        <td><span class="high15">28</span></td>
+                        <td><span class="low15">21</span></td>
+                    </tr>
+                    <tr height="20px">
+                        <td class="ymd15"></td>
+                        <td><img src="img/yun.png" class="phrase_img" alt="" width="25px" height="25px"></td>
+                        <td><span class="high15">28</span></td>
+                        <td><span class="low15">21</span></td>
+                    </tr>
+                    <tr height="20px">
+                        <td class="ymd15"></td>
+                        <td><img src="img/yun.png" class="phrase_img" alt="" width="25px" height="25px"></td>
+                        <td><span class="high15">28</span></td>
+                        <td><span class="low15">21</span></td>
+                    </tr>
+                    <tr height="20px">
+                        <td class="ymd15"></td>
+                        <td><img src="img/yun.png" class="phrase_img" alt="" width="25px" height="25px"></td>
+                        <td><span class="high15">28</span></td>
+                        <td><span class="low15">21</span></td>
+                    </tr>
+                    <tr height="20px">
+                        <td class="ymd15"></td>
+                        <td><img src="img/yun.png" class="phrase_img" alt="" width="25px" height="25px"></td>
+                        <td><span class="high15">28</span></td>
+                        <td><span class="low15">21</span></td>
+                    </tr>
+                    <tr height="20px">
+                        <td class="ymd15"></td>
+                        <td><img src="img/yun.png" class="phrase_img" alt="" width="25px" height="25px"></td>
+                        <td><span class="high15">28</span></td>
+                        <td><span class="low15">21</span></td>
+                    </tr>
+                    <tr height="20px">
+                        <td class="ymd15"></td>
+                        <td><img src="img/yun.png" class="phrase_img" alt="" width="25px" height="25px"></td>
+                        <td><span class="high15">28</span></td>
+                        <td><span class="low15">21</span></td>
+                    </tr>
+                    <tr height="20px">
+                        <td class="ymd15"></td>
+                        <td><img src="img/yun.png" class="phrase_img" alt="" width="25px" height="25px"></td>
+                        <td><span class="high15">28</span></td>
+                        <td><span class="low15">21</span></td>
+                    </tr>
+                    <tr height="20px">
+                        <td class="ymd15"></td>
+                        <td><img src="img/yun.png" class="phrase_img" alt="" width="25px" height="25px"></td>
+                        <td><span class="high15">28</span></td>
+                        <td><span class="low15">21</span></td>
+                    </tr>
+                    <tr height="20px">
+                        <td class="ymd15"></td>
+                        <td><img src="img/yun.png" class="phrase_img" alt="" width="25px" height="25px"></td>
+                        <td><span class="high15">28</span></td>
+                        <td><span class="low15">21</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 搜索页面 -->
+    <div data-role="page" id="search" style="background-color: rgb(99, 93, 93);">
+        <div data-role="header" data-position="fixed" style="background-color: rgb(99, 93, 93);">
+            <a href="#home" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext"
+                data-transition="pop fade reverse"></a>
+            <h1>搜索</h1>
+        </div>
+
+        <div data-role="main" class="ui-content" style="color: #fff; font-size: 14px;">
+            <div>
+                <div style="width: 75%; float: left;">
+                    <input type="search" data-inline="true" id="search" placeholder="请输入地名">
+                </div>
+                <div style="width: 23%; float: right;">
+                    <button id="sear_btn" style="font-size: 1em; height: 2.3em; line-height: 0.8em;">确定</button>
+                </div>
+            </div>
+            <p>&nbsp;&nbsp;&nbsp;</p>
+            <p><i>例子：</i></p>
+            <p><i>（1）地级市：广州市</i></p>
+            <p><i>（2）县级市/区：番禺</i></p>
+        </div>
+    </div>
+
+    <!-- 设置和功能页面 -->
+    <div data-role="page" id="gear" style="background-color: rgb(99, 93, 93);">
+        <div data-role="header" style="background-color: rgb(99, 93, 93);">
+            <a href="#home" class="ui-btn ui-icon-home ui-btn-icon-notext" data-transition="pop fade reverse"></a>
+            <h1>设置</h1>
+        </div>
+
+        <div data-role="main" class="ui-content" style="color: #fff;">
+            <div>
+                <div style="width: 75%; float: left;">
+                    <input type="text" class="fcity" data-inline="true" id="search" placeholder="输入关注的城市">
+                </div>
+                <div style="width: 23%; float: right;">
+                    <input type="checkbox" data-role="flipswitch" autocomplete="off" name="following" id="following">
+                </div>
+            </div>
+            <div>
+                <div style="width: 75%; float: left;">
+                    <input class="acity" type="text" data-inline="true" id="search" placeholder="添加城市">
+                </div>
+                <div style="width: 23%; float: right;">
+                    <button id="addCity" style="font-size: 1em; height: 2.3em; line-height: 0.8em;">添加</button>
+                </div>
+            </div>
+            <div>
+                <div style="width: 75%; float: left;">
+                    <input class="dcity" type="text" data-inline="true" id="search" placeholder="删除城市">
+                </div>
+                <div style="width: 23%; float: right;">
+                    <button id="delCity" style="font-size: 1em; height: 2.3em; line-height: 0.8em;">删除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

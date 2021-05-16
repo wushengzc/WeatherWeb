@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>UI实现</title>
+</head>
+
+<body>
+    <!-- 
+        jQuery Mobile 依赖 HTML5 data-* 属性来支持各种 UI 元素、过渡和页面结构。
+        page表示一个页面。
+        header表示页眉。
+        main表示页面的内容部分。
+        ui-content类表示在页面添加内边距和外边距
+        footer表示页脚
+        data-position表示页眉和页脚是固定的还是随内容移动，或者固定加透明
+        data-transition表示过渡方式（页面跳转的样子）
+
+        class的值：
+        ui-corner-all 表示圆角
+        ui-icon-* 表示图标
+        ui-btn-icon-notext 表示无文本节点
+
+        （1）页面跳转通过 a 元素和锚点#
+        （2）水平滚动盒子的制作：定义一个外部盒子和内部盒子，外部盒子小于内部盒子，滚动的样式设置在外部盒子，overflow-x: scroll;
+            如果内部盒子的width小于外部盒子的width就会水平滚动。
+        （3）将一个按钮放置在search框右边的方法：一个盒子装search框，另一个盒子装按钮，两个盒子浮动以及设置宽高。
+        
+     -->
+
+    <!-- 主页 -->
+    <div data-role="page" id="home">
+        <div data-role="header" data-position="fixed">
+            <a href="#search" class="ui-btn ui-corner-all ui-icon-search ui-btn-icon-notext"
+                data-transition="pop fade"></a>
+            <h1>广州市</h1>
+            <a href="#myPopup" data-rel="popup"
+                class="ui-btn ui-btn-right ui-btn-inline ui-corner-all ui-icon-gear ui-btn-icon-left ui-btn-icon-notext"></a>
+
+            <div data-role="popup" id="myPopup" class="ui-content">
+                <div data-role="collapsibleset">
+                    <div data-role="collapsible">
+                        <h3>切换城市</h3>
+                        <a href="#" class="ui-btn">广州市</a>
+                        <a href="#" class="ui-btn">北京市</a>
+                    </div>
+                    <a href="#gear" class="ui-btn ui-corner-all" data-transition="pop fade">设置</a>
+                </div>
+            </div>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <div style="height: 350px; background-color: red;">
+            </div>
+            <div style="height: 250px; background-color: pink;">
+            </div>
+            <a href="#detail" class="ui-btn ui-corner-all" data-transition="slidefade">查看近15日天气</a>
+        </div>
+    </div>
+
+    <!-- 详情页 -->
+    <div data-role="page" id="detail">
+        <div data-role="header" data-position="fixed">
+            <a href="#home" class="ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-notext"
+                data-transition="slidefade reverse"></a>
+            <h1>广州市</h1>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <div style="height: 150px; width: 100%; overflow-y: hidden; overflow-x: scroll;">
+                <div style="width: 240%; height: 100%;">
+                    <!-- 15个盒子的6.66%相加接近 100%，即父盒子的大小 -->
+                    <div style="width: 6.66%;height: 100%; float: left; background-color: green;">1</div>
+                    <div style="width: 6.66%;height: 100%;float: left; background-color: pink;">2</div>
+                    <div style="width: 6.66%;height: 100%;float: left; background-color: green;">3</div>
+                    <div style="width: 6.66%;height: 100%;float: left; background-color: pink;">4</div>
+                    <div style="width: 6.66%;height: 100%;float: left; background-color: green;">5</div>
+                    <div style="width: 6.66%;height: 100%;float: left; background-color: pink;">6</div>
+                    <div style="width: 6.66%;height: 100%;float: left; background-color: green;">7</div>
+                    <div style="width: 6.66%;height: 100%;float: left; background-color: pink;">8</div>
+                    <div style="width: 6.66%;height: 100%;float: left; background-color: green;">9</div>
+                    <div style="width: 6.66%;height: 100%;float: left; background-color: pink;">10</div>
+                    <div style="width: 6.66%;height: 100%;float: left; background-color: green;">11</div>
+                    <div style="width: 6.66%;height: 100%;float: left; background-color: pink;">12</div>
+                    <div style="width: 6.66%;height: 100%;float: left; background-color: green;">13</div>
+                    <div style="width: 6.66%;height: 100%;float: left; background-color: pink;">14</div>
+                    <div style="width: 6.66%;height: 100%;float: left; background-color: green;">15</div>
+                </div>
+            </div>
+            <div style="height: 100px; background-color: pink;">
+            </div>
+            <!-- 这里不限定高度，因为这是Web，而不是app，它可以变的更长 -->
+            <div style="height: 200px; background-color: blue;">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 搜索页面 -->
+    <div data-role="page" id="search">
+        <div data-role="header" data-position="fixed">
+            <a href="#home" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext"
+                data-transition="pop fade reverse"></a>
+            <h1>搜索</h1>
+        </div>
+
+        <div data-role="main" class="ui-content" style="text-align: center;">
+            <div>
+                <div style="width: 75%; float: left;">
+                    <input type="search" data-inline="true" id="search" placeholder="请输入城市名">
+                </div>
+                <div style="width: 23%; float: right;">
+                    <button style="font-size: 1em; height: 2.3em; line-height: 0.8em;">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 设置和功能页面 -->
+    <div data-role="page" id="gear">
+        <div data-role="header">
+            <a href="#home" class="ui-btn ui-icon-home ui-btn-icon-notext" data-transition="pop fade reverse"></a>
+            <h1>设置</h1>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+        </div>
+    </div>
+</body>
+
+</html>

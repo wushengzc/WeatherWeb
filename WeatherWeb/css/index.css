@@ -1,0 +1,82 @@
+body {
+    font-size: 16px;
+    background-color: rgb(99, 93, 93);
+}
+
+li {
+    list-style: none;
+}
+
+.hour1,
+.hour2 {
+    width: 4.16%;
+    height: 100%;
+    float: left;
+    background-color: rgb(99, 93, 93);
+}
+
+.bigicon {
+    height: 160px;
+    background-color: rgb(99, 93, 93);
+    padding: 0 100px;
+    padding-top: 70px;
+    text-align: center;
+    position: relative;
+}
+
+.sunny {
+    left: 51.5%;
+    top: 10%;
+    text-align: center;
+}
+
+.bigicon p,
+#home h1,
+#detail h1,
+#search h1,
+#gear h1,
+a {
+    color: #fff;
+}
+
+.simple {
+    height: 250px;
+    color: #fff;
+}
+
+.simple ul {
+    height: 100%;
+}
+
+.simple ul li {
+    height: 25%;
+    line-height: 62.5px;
+}
+
+.simple ul li img {
+    width: 25px;
+    vertical-align: middle;
+}
+
+.otherinfo ul li {
+    float: left;
+    width: 25%;
+    height: 100%;
+    text-indent: 0.5em;
+    padding-top: 20px;
+}
+
+.otherinfo ul li p:first-child {
+    font-size: 20px;
+    color: #fff;
+}
+
+.otherinfo ul li p:last-child {
+    margin-top: 4px;
+    font-size: 14px;
+    color:rgb(204, 202, 202);
+}
+
+.day {
+    color: #fff;
+}

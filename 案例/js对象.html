@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js对象</title>
+</head>
+
+<body>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <script>
+        // 创建对象，定义属性：属性名:值，定义方法：方法名: function(x1,x2...){}
+        var per = {
+            name: "zhangsan",
+            age: 19,
+            height: 1.70,
+            isStudent: true,
+            getName: function () {
+                return this.name;
+            }
+        }
+        // 如果不加()访问方法，返回的是方法的定义。
+        // 如果加()访问方法，执行方法并返回值。
+        document.getElementById("demo1").innerHTML = per.getName();
+        document.getElementById("demo2").innerHTML = per.age;
+
+        // 对象作为另一个对象的属性值
+        var car = {
+            color: "red",
+            type: "SUV",
+        }
+        var person = {
+            name: "lisi",
+            car: car
+        }
+        alert(person.car.type);
+    </script>
+</body>
+
+</html>

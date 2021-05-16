@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML文档解析示例</title>
+    <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.get("https://restapi.amap.com/v3/geocode/regeo?output=xml&location=113.310003,22.991957&key=80b368e3987c1b342868a4ce780dda7c&radius=1000&extensions=all", function(data, status){
+                // XML类似DOM，解析成DOM元素对象，通过getElementsByTagName()搜索子元素，再用childNodes获取直接子元素
+                // 注意：元素节点没有值，即nodeValue=null，而文本也是节点，文本节点是元素节点的子元素，它的nodeValue有值。
+                document.getElementById("demo").innerHTML = data.getElementsByTagName("city")[0].childNodes[0].nodeValue;
+            })
+        });
+    </script>
+</head>
+<body>
+    <p id="demo"></p>
+</body>
+</html>

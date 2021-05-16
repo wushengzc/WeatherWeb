@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage使用</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        var a = localStorage.getItem('a');
+        localStorage.setItem('priority', 0);
+        var priority = localStorage.getItem('priority');
+        document.getElementById('demo').innerHTML = priority;
+        if(a == undefined){
+            alert("no");
+        }
+    </script>
+</body>
+</html>
