@@ -102,7 +102,7 @@ function setValue1(data) {
     }
 }
 
-// 数据源：https://v0.yiketianqi.com/api/worldchina?appid=51758732&appsecret=mzbQzAy2
+// 数据源：https://v0.yiketianqi.com/api/worldchina?appid=45693422&appsecret=gfk2fFT2
 // 对CityWeather对象初始化另一部分属性
 function setValue2(data) {
     CityWeather.currentWeather.feelsLike = data.day.feelsLike;
@@ -133,7 +133,7 @@ function load(citykey) {
         }
 
         // 拿第二批
-        var url2 = "https://v0.yiketianqi.com/api/worldchina?appid=51758732&appsecret=mzbQzAy2&cityid=" + citykey;
+        var url2 = "https://v0.yiketianqi.com/api/worldchina?appid=45693422&appsecret=gfk2fFT2&cityid=" + citykey;
         $.get(url2, function (data, status) {
             if (status == "success") {
                 setValue2(data);

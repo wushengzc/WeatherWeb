@@ -40,12 +40,13 @@ a {
 }
 
 .simple {
-    height: 250px;
+    height: 200px;
     color: #fff;
 }
 
 .simple ul {
     height: 100%;
+    padding-left: 0;
 }
 
 .simple ul li {
@@ -58,12 +59,14 @@ a {
     vertical-align: middle;
 }
 
+.otherinfo {
+    margin-bottom: 50px;
+}
+
 .otherinfo ul li {
     float: left;
     width: 25%;
     height: 100%;
-    text-indent: 0.5em;
-    padding-top: 20px;
 }
 
 .otherinfo ul li p:first-child {
